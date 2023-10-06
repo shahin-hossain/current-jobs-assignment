@@ -11,3 +11,7 @@ Currently, two official plugins are available:
 - React Router v6.16
 - Tailwind CSS v3.3.3
 - Hero Icon v2.0.18
+
+# Features
+
+- Dynamic Navbar
