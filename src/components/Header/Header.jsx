@@ -6,7 +6,7 @@ const Header = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='bg-gradient-to-r from-violet-50 to-violet-100 p-5 pb-0 '>
+        <div className='bg-gradient-to-r from-violet-50 to-violet-100 p-5 pb-5'>
             <div className='flex justify-between items-center  '>
                 <h2 className='text-3xl font-bold text-slate-700'>Current <span className='text-violet-600'>Jobs</span></h2>
 

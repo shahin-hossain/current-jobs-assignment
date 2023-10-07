@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import user from '../../assets/images/user.png'
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Category from '../Category/Category';
+import FeaturedJobs from '../FeaturedJobs/FeaturedJobs';
 const Home = () => {
     const [categories, setCategories] = useState([]);
+    const jobs = useLoaderData();
 
     useEffect(() => {
         fetch('jobCategory.json')
@@ -33,6 +35,21 @@ const Home = () => {
                     ></Category>)}
                 </div>
             </div>
+            <div className='mt-32'>
+                <div className='text-center'>
+                    <h2 className='text-3xl font-semibold text-slate-800'>Featured Jobs</h2>
+                    <p className='text-slate-500 mt-3'>Explore thousands of job opportunities with all the information you need. Its your future</p>
+                </div>
+                <div className='grid grid-cols-1 md:grid-cols-2 mt-20 gap-5 place-items-center'>
+                    {jobs.slice(0, 4).map(job => <FeaturedJobs
+                        key={job.id}
+                        job={job}
+                    ></FeaturedJobs>)}
+                </div>
+                <button className='bg-gradient-to-r from-violet-500 to-violet-800 py-3 px-6 text-white rounded-lg mt-10 mx-auto block '>See All Jobs</button>
+
+            </div>
+
         </div>
     );
 };
