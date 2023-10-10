@@ -1,18 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import user from '../../assets/images/user.png'
 import { Link, useLoaderData } from 'react-router-dom';
 import Category from '../Category/Category';
 import FeaturedJobs from '../FeaturedJobs/FeaturedJobs';
+
+
+
 const Home = () => {
     const [categories, setCategories] = useState([]);
-    const jobs = useLoaderData();
+    // const jobs = useLoaderData();
+    const [jobs, setJobs] = useState([])
 
+    // const jobs = useLoaderData();
     useEffect(() => {
         fetch('jobCategory.json')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
+    useEffect(() => {
+        fetch('jobData.json')
+            .then(res => res.json())
+            .then(data => setJobs(data))
+    }, [])
+
+
     return (
+
         <div>
             <div className='bg-gradient-to-r from-violet-50 to-violet-100 p-5 pb-0 rounded-b-lg'>
                 <div className='flex flex-col md:flex-row justify-center md:items-center md:justify-between'>
@@ -44,13 +57,17 @@ const Home = () => {
                     {jobs.slice(0, 4).map(job => <FeaturedJobs
                         key={job.id}
                         job={job}
+
+
                     ></FeaturedJobs>)}
                 </div>
                 <button className='bg-gradient-to-r from-violet-500 to-violet-800 py-3 px-6 text-white rounded-lg mt-10 mx-auto block '>See All Jobs</button>
 
             </div>
 
+
         </div>
+
     );
 };
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
+import JobDetails from '../JobDetails/JobDetails';
+
 //jobs props come from Home component
 const FeaturedJobs = ({ job }) => {
 
@@ -15,6 +17,7 @@ const FeaturedJobs = ({ job }) => {
         salary
     } = job;
     // console.log(job)
+
     return (
         <div className='p-10 text-slate-600  border shadow-lg rounded-lg'>
             <img src={logo} alt="company logo" className='w-32 mb-8' />
@@ -25,17 +28,18 @@ const FeaturedJobs = ({ job }) => {
                 <p className=' font-semibold py-1 px-3 text-violet-600 border border-violet-500 rounded-md mb-2'>{job_type}</p>
             </div>
             <div className='flex justify-between gap-5'>
-                <div className='flex'>
+                <div className='flex flex-col md:flex-row md:items-center gap-1'>
                     <span><MapPinIcon className="h-6 w-5 text-slate-500 inline" /></span>
                     <p className='text-xl'>{location}</p>
                 </div>
-                <div className='flex items-center gap-1'>
+                <div className='flex flex-col md:flex-row md:items-center gap-1'>
                     <span><CurrencyDollarIcon className='h-6 w-5 text-slate-500 inlin' /></span>
                     <p className='text-xl'>Salary: {salary}</p>
                 </div>
             </div>
-            <Link to='/job-details'><button className='bg-gradient-to-r from-violet-500 to-violet-800 py-1 px-6 text-white rounded-md mt-5'>View Details</button>
+            <Link to={`/job-details/${id}`}><button className='bg-gradient-to-r from-violet-500 to-violet-800 py-1 px-6 text-white rounded-md mt-5'>View Details</button>
             </Link>
+
         </div>
     );
 };
