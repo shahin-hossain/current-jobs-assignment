@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useLocation, useParams } from 'react-router-dom';
 import bg1 from '../../../src/assets/images/bg1.png'
 import { CurrencyDollarIcon, CalendarDaysIcon, PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid'
-import { setJobToLocalStorage } from '../../utils/LocalStorage';
+import { getJobFromLocalStorage, setJobToLocalStorage } from '../../utils/LocalStorage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const JobDetails = ({ }) => {
 
+    // const [jobs, setJobs] = useState([])
     const [isApplied, setApplied] = useState(false)
     const jobs = useLoaderData();
+
+    /* useEffect(() => {
+        fetch('jobData.json')
+            .then(res => res.json())
+            .then(data => setJobs(data))
+    }, []) */
     // console.log(jobs)
     const { id } = useParams();
     let job = jobs.find(job => job.id == id);
+
+
 
     const {
         job_description,
@@ -25,9 +34,18 @@ const JobDetails = ({ }) => {
     // console.log(job)
     const addToAppliedJob = id => {
         // console.log(id)
-        setJobToLocalStorage(id)
-        toast.success("Successfully Applied");
+        const exist = getJobFromLocalStorage()
+        console.log(exist)
+        if (exist[id] == id) {
+            setApplied(true)
+            return toast.error('Already Applied')
+        }
+        else {
+            setJobToLocalStorage(id)
+            toast.success("Successfully Applied");
+        }
     }
+
     return (
         <div className='w-11/12 md:w-full mx-auto'>
             <div className='relative'>

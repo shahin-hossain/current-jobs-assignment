@@ -20,5 +20,10 @@ const loadJobData = async () => {
     return savedJobs;
 }
 
+const loaderAllData = async () => {
+    const res = await fetch('jobData.json');
+    const data = await res.json();
+    return data;
+}
 
-export { loadJobData }
+export { loadJobData, loaderAllData }

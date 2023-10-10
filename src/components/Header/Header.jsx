@@ -17,7 +17,7 @@ const Header = () => {
 
                 </div>
 
-                <nav className={`flex flex-col absolute  md:static md:flex-row md:block duration-500 bg-violet-300 rounded-lg md:bg-transparent ${open ? 'top-20 right-0 ' : 'right-0 -top-full'}`}>
+                <nav className={`flex flex-col absolute z-10  md:static md:flex-row md:block duration-500 bg-violet-300 rounded-lg md:bg-transparent ${open ? 'top-20 right-0 ' : 'right-0 -top-full'}`}>
                     <ActiveLink to='/'>Home</ActiveLink>
                     <ActiveLink to='/statistics'>Statistics</ActiveLink>
                     <ActiveLink to='/applied-jobs'>Applied Jobs</ActiveLink>

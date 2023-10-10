@@ -70,9 +70,9 @@ const Statistics = () => {
 
     return (
         <div>
-            <div className='relative'>
+            <div className='relative bg-gradient-to-r from-violet-50 to-violet-100 '>
                 <img src={bg1} alt="" />
-                <h2 className='text-3xl font-bold absolute top-1/2  md:start-[450px] text-violet-800'>Marks Statistics</h2>
+                <h2 className='text-3xl font-bold absolute top-1/2  md:start-[450px] z-0 text-violet-800'>Marks Statistics</h2>
             </div>
 
             <PieChart width={1000} height={500}>
