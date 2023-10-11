@@ -13,13 +13,14 @@ const JobDetails = ({ }) => {
 
     const navigate = useNavigate()
     /* useEffect(() => {
-        fetch('jobData.json')
+        fetch('jobs.json')
             .then(res => res.json())
             .then(data => setJobs(data))
     }, []) */
     // console.log(jobs)
     const { id } = useParams();
-    let job = jobs.find(job => job.id == id);
+    const intId = parseInt(id)
+    let job = jobs.find(job => job.id === intId);
 
 
 

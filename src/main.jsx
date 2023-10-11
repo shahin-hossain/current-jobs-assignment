@@ -37,9 +37,9 @@ const router = createBrowserRouter([
 
       },
       {
-        path: 'job-details/:id',
+        path: '/job/:id',
         element: <JobDetails></JobDetails>,
-        loader: loaderAllData,
+        loader: () => fetch('/jobs.json') // fetch করার সময় (/) স্লাস না দিলে page reload দিলে json data পায় না।
       },
 
       {

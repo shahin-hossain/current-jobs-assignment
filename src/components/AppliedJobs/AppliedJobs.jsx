@@ -61,7 +61,7 @@ const AppliedJobs = () => {
                             </div>
 
                             <div>
-                                <Link to={`/job-details/${job.id}`}><button className='bg-gradient-to-r from-violet-500 to-violet-800 py-1 px-6 text-white rounded-md mt-5'>View Details</button>
+                                <Link to={`/job/${job.id}`}><button className='bg-gradient-to-r from-violet-500 to-violet-800 py-1 px-6 text-white rounded-md mt-5'>View Details</button>
                                 </Link>
                             </div>
 

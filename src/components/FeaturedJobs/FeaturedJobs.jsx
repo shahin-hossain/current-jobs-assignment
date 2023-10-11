@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
-import JobDetails from '../JobDetails/JobDetails';
 
 //jobs props come from Home component
 const FeaturedJobs = ({ job }) => {
@@ -37,7 +36,7 @@ const FeaturedJobs = ({ job }) => {
                     <p className='text-xl'>Salary: {salary}</p>
                 </div>
             </div>
-            <Link to={`/job-details/${id}`}><button className='bg-gradient-to-r from-violet-500 to-violet-800 py-1 px-6 text-white rounded-md mt-5'>View Details</button>
+            <Link to={`/job/${id}`}><button className='bg-gradient-to-r from-violet-500 to-violet-800 py-1 px-6 text-white rounded-md mt-5'>View Details</button>
             </Link>
 
         </div>
