@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData, useLocation, useParams } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate, useParams } from 'react-router-dom';
 import bg1 from '../../../src/assets/images/bg1.png'
 import { CurrencyDollarIcon, CalendarDaysIcon, PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid'
 import { getJobFromLocalStorage, setJobToLocalStorage } from '../../utils/LocalStorage';
@@ -11,6 +11,7 @@ const JobDetails = ({ }) => {
     const [isApplied, setApplied] = useState(false)
     const jobs = useLoaderData();
 
+    const navigate = useNavigate()
     /* useEffect(() => {
         fetch('jobData.json')
             .then(res => res.json())
@@ -87,7 +88,7 @@ const JobDetails = ({ }) => {
                         <span><MapPinIcon className="h-6 w-6 text-violet-500" /></span>
                         <p className='text-slate-600 ms-1 '><span className='font-bold text-slate-800 '>Address:</span> {contact_information.address} </p>
                     </div>
-                    <div onClick={() => setApplied(!isApplied)}>
+                    <div className='flex gap-3' onClick={() => setApplied(!isApplied)}>
 
                         {isApplied ? <button className='bg-slate-800 py-3 px-6 text-white rounded-lg mt-10 font-semibold block '>Applied It</button>
                             : <button onClick={() => addToAppliedJob(job.id)} className='bg-gradient-to-r from-violet-500 to-violet-800 py-3 px-6 text-white rounded-lg mt-10 font-semibold block '>Apply Now </button>
@@ -95,6 +96,7 @@ const JobDetails = ({ }) => {
                         <div onClick={() => notify}>
                             <ToastContainer />
                         </div>
+                        <button onClick={() => navigate(-1)} className='bg-gradient-to-r from-violet-500 to-violet-800 py-3 px-6 text-white rounded-lg mt-10 font-semibold block '>Back To Home</button>
                     </div>
                 </div>
             </section>

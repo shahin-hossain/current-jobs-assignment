@@ -44,9 +44,9 @@ const Footer = () => {
             <div className='p-px bg-zinc-900 my-5'>
 
             </div>
-            <div className='w-11/12 mx-auto text-center md:text-start flex justify-between'>
-                <p className='text-zinc-500'>&copy; 2023 Current Job. All Rights Reserved</p>
-                <p className='text-zinc-500'>Powered by Current Job</p>
+            <div className='w-11/12 mx-auto text-center md:text-start flex flex-col md:flex-row justify-between'>
+                <p className='text-zinc-500'>&copy; 2023 Current Jobs. All Rights Reserved</p>
+                <p className='text-zinc-500'>Powered by Current Jobs</p>
             </div>
         </div>
     );

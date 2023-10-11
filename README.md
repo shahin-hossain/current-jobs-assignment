@@ -8,6 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 # Using Materials
+
 - React Router v6.16
 - Tailwind CSS v3.3.3
 - Hero Icon v2.0.18
@@ -15,3 +16,9 @@ Currently, two official plugins are available:
 # Features
 
 - Dynamic Navbar
+- Statistics Review
+- Applied Jobs
+- Local Storage functionality 
+- See More Button
+- Back Button Navigate
+- Footer
