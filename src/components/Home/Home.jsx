@@ -11,7 +11,8 @@ const Home = () => {
     // const jobs = useLoaderData();
     const [jobs, setJobs] = useState([])
 
-    const [isShowJobs, setShowJobs] = useState(false);
+    // const [isShowJobs, setShowJobs] = useState(false);
+    const [isShowJobs, setShowJobs] = useState(4);
 
     // const jobs = useLoaderData();
     useEffect(() => {
@@ -56,7 +57,7 @@ const Home = () => {
                     <p className='text-slate-500 mt-3'>Explore thousands of job opportunities with all the information you need. Its your future</p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 mt-20 gap-5 place-items-center'>
-                    {
+                    {/* {
                         isShowJobs === false && jobs.slice(0, 4).map(job => <FeaturedJobs
                             key={job.id}
                             job={job}
@@ -67,9 +68,13 @@ const Home = () => {
                             key={job.id}
                             job={job}
                         ></FeaturedJobs>)
-                    }
+                    } */}
+                    {jobs.slice(0, isShowJobs).map(job => <FeaturedJobs
+                        key={job.id}
+                        job={job}
+                    ></FeaturedJobs>)}
                 </div>
-                <button onClick={() => setShowJobs(true)} className={`bg-gradient-to-r from-violet-500 to-violet-800 py-3 px-6 text-white rounded-lg mt-10 mx-auto block ${isShowJobs === true && 'hidden'}`}>See All Jobs</button>
+                <button onClick={() => setShowJobs(jobs.length)} className={`bg-gradient-to-r from-violet-500 to-violet-800 py-3 px-6 text-white rounded-lg mt-10 mx-auto block ${isShowJobs === jobs.length && 'hidden'}`}>See All Jobs</button>
 
             </div>
 
